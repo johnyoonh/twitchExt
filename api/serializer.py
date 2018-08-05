@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from taggit_serializer.serializers import TagListSerializerField
 
-from api.models import Artist, Song
+from api.models import Artist, Song, Genre
 
 
 class ArtistSerializer(serializers.ModelSerializer):
@@ -35,4 +35,13 @@ class SongSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Song
+        fields = '__all__'
+
+
+class GenreSerializer(serializers.ModelSerializer):
+    name = serializers.CharField()
+    slug = serializers.CharField()
+
+    class Meta:
+        model = Genre
         fields = '__all__'
