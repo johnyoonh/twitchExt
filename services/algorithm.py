@@ -29,24 +29,24 @@ def get_random_artists(genre):
     while artist1 == artist2:
         artist2 = choice(genre_artists, 1, p=priorities[genre], replace=False)
     return artist1[0], artist2[0]
-    
+
 #def artist_chosen(artist)
 
-def get_random_tracks(artist, last_10_songs):
-    track1 = random.choice(artists[artist])
+def get_random_tracks(tracks, priorities, last_10_songs):
+    track1 = random.choice(tracks)
     count = 0
     while track1 in last_10_songs and count < 10:
-        track1 = choice(artists[artist], 1, p=track_priorities[artist], replace=False)
+        track1 = choice(tracks, 1, p=priorities, replace=False)
         count += 1
 
-    track2 = choice(artists[artist], 1, p=track_priorities[artist], replace=False)
+    track2 = choice(tracks, 1, p=priorities, replace=False)
     count = 0
     while track2 in last_10_songs and count < 10:
-        track2 = choice(artists[artist], 1, p=track_priorities[artist], replace=False)
+        track2 = choice(tracks, 1, p=priorities, replace=False)
         count += 1
 
     while track1 == track2:
-        track2 = choice(artists[artist], 1, p=track_priorities[artist], replace=False)
+        track2 = choice(tracks, 1, p=priorities, replace=False)
     return track1, track2[0]
 
 def track_chosen(track):
