@@ -1,0 +1,7 @@
+*.pyc
+*.tmp
+*.swp
+*.log
+*.un~
+.envrc
+.idea*
