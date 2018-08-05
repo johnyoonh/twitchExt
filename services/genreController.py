@@ -51,12 +51,5 @@ def getSongIdFromName(songName):
 	return song1
 
 
-for i in range(10):
-	x, y = getArtistsIds(getGenres()[0])
-	#print(getArtistNames(x, y))
-	temp = getSongs(x , [])[0]
-	print(temp)
-	print(getSongIdFromName(temp))
-
 
 
