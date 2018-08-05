@@ -1,7 +1,7 @@
 from rest_framework import serializers
 from taggit_serializer.serializers import TagListSerializerField
 
-from api.models import Artist, Song, Genre
+from api.models import Artist, Song, Genre, Timer
 
 
 class ArtistSerializer(serializers.ModelSerializer):
@@ -44,4 +44,12 @@ class GenreSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Genre
+        fields = '__all__'
+
+class TimerSerializer(serializers.ModelSerializer):
+    id = serializers.ReadOnlyField()
+    created = serializers.DateTimeField(required=False)
+    modified = serializers.DateTimeField(required=False)
+    class Meta:
+        model = Timer
         fields = '__all__'

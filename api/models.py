@@ -59,3 +59,6 @@ class Song(models.Model):
     explicit_content = models.BooleanField(blank=True)
     popularity = models.FloatField(default=0.0)
 
+class Timer(models.Model):
+    created = models.DateTimeField( auto_now_add=True, verbose_name='created' )
+    modified = models.DateTimeField( auto_now=True, verbose_name='modified')

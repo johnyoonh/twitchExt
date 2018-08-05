@@ -1,7 +1,7 @@
 from rest_framework import viewsets
 
-from api.models import Artist, Song, Genre
-from api.serializer import ArtistSerializer, SongSerializer, GenreSerializer
+from api.models import Artist, Song, Genre, Timer
+from api.serializer import ArtistSerializer, SongSerializer, GenreSerializer, TimerSerializer
 
 
 class ArtistViewSet(viewsets.ModelViewSet):
@@ -17,3 +17,6 @@ class GenreViewSet(viewsets.ModelViewSet):
     queryset = Genre.objects.all().order_by('?')
     serializer_class = GenreSerializer
 
+class TimerViewSet(viewsets.ModelViewSet):
+    queryset = Timer.objects.all()
+    serializer_class = TimerSerializer
