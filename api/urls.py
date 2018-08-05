@@ -9,7 +9,12 @@ from rest_framework_swagger.views import get_swagger_view
 # from rest_framework.authtoken import views
 from django.conf import settings
 
+from api.views import ArtistViewSet, SongViewSet
+
 router = DefaultRouter()
+
+router.register(r'artists', ArtistViewSet, base_name='artists')
+router.register(r'songs', SongViewSet, base_name='songs')
 
 urlpatterns = [
     url(r'^docs$', get_swagger_view(title='API Docs'), name='api_docs'),
