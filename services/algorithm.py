@@ -8,26 +8,25 @@ artists = {11111: [0000, 1111, 2222, 3333, 4444], 22222: [5555, 6666, 7777, 8888
 track_priorities = {11111: [.1, .2, .3, .2, .2], 22222: [.1, .1, .4, .4]}
 last_10_songs = []
 
-def get_random_genres():
-    genre1 = random.choice(list(genres.keys()))
-    genre2 = random.choice(list(genres.keys()))
+def get_random_genres(genres):
+    genre1 = random.choice(genres)
+    genre2 = random.choice(genres)
     while genre2 == genre1:
-        genre2 = random.choice(list(genres.keys()))
+        genre2 = random.choice(genres)
         return genre1, genre2
 
-def get_random_genre(other_genre):
-    genre = random.choice(list(genres.keys()))
+def get_random_genre(genres, other_genre):
+    genre = random.choice(genres)
     while genre == other_genre:
-        genre = random.choice(list(genres.keys()))
+        genre = random.choice(genres)
     return genre
 
-def get_random_artists(genre):
-    genre_artists = genres[genre]
-    artist1 = choice(genre_artists, 1, p=artist_priorities[genre], replace=False)
-    artist2 = choice(genre_artists, 1, p=artist_priorities[genre], replace=False)
+def get_random_artists(artists, priorities):
+    artist1 = choice(artists, 1, p=priorities, replace=False)
+    artist2 = choice(artists, 1, p=priorities, replace=False)
 
     while artist1 == artist2:
-        artist2 = choice(genre_artists, 1, p=priorities[genre], replace=False)
+        artist2 = choice(artists, 1, p=priorities, replace=False)
     return artist1[0], artist2[0]
 
 #def artist_chosen(artist)
@@ -49,7 +48,7 @@ def get_random_tracks(tracks, priorities, last_10_songs):
         track2 = choice(tracks, 1, p=priorities, replace=False)
     return track1, track2[0]
 
-def track_chosen(track):
+def track_chosen(track, last_10_songs):
     if len(last_10_songs) == 10:
         last_10_songs.pop(0)
     last_10_songs.append(track)
