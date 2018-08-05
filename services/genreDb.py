@@ -1,0 +1,25 @@
+import sqlite3
+
+def createSongDb():
+	conn = sqlite3.connect('genre.db')
+	c = conn.cursor()
+	c.execute("create table genre(genreName, artistId, artistName, popularity);")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('rock', '364' ,'The Beach Boys', '.4')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('rock', '40', 'Lynyrd Skynyrd', '.3')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('rock', '1448', 'Jonny Cash', '.6')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('rock', '1481', 'Eric Clapton', '.1')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('pop', '222', 'Maroon 5', '.7')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('pop', '8955', 'The All-American Rejects', '.3')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('pop', '10653', 'Rihanna', '.6')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('pop', '616', 'The Killers', '.1')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('jazz', '133', 'Ella Fitzgerald', '.12')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('jazz', '49', 'Billie Holliday', '.54')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('jazz', '136', 'B.B. King', '.7')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('jazz', '1497', 'Dinah Washington', '.3')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('classical', '2308', 'London Symphony Orchestra', '.2')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('classical', '1469', 'Andrea Bocelli', '.56')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('classical', '11423', 'Luciano Pavoratti', '.3')")
+	c.execute("insert into genre(genreName, artistId, artistName, popularity) values ('classical', '2981', 'John Williams', '.8')")
+	conn.commit()
+
+createSongDb()
