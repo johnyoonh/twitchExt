@@ -20,6 +20,7 @@
     "hapi": "^17.2.2",
     "inert": "^5.1.0",
     "jsonwebtoken": "^8.2.0",
+    "oauth": "^0.9.15",
     "request": "^2.85.0",
     "selfsigned": "^1.10.2"
   }

@@ -6,7 +6,7 @@ def get_random_genres(genres):
     genre2 = random.choice(genres)
     while genre2 == genre1:
         genre2 = random.choice(genres)
-        return genre1, genre2
+    return genre1, genre2
 
 def get_random_genre(genres, other_genre):
     genre = random.choice(genres)
