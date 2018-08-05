@@ -53,7 +53,7 @@ def track_chosen(track, last_10_songs):
 def test_frequency():
     tracks = []
     for i in range(500):
-        track1, track2 = get_random_tracks(11111, [])
+        track1, track2 = get_random_tracks(11111,[.1] ,[])
         tracks.append(track1)
         tracks.append(track2)
         track_chosen(random.choice([track1, track2]))

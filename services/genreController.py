@@ -33,9 +33,13 @@ def getArtistIdsFromNames(artistName1):
 def getSongs(artist, last10):
 	conn = sqlite3.connect('song.db')
 	c = conn.cursor()
+	c.execute("SELECT artistid from songs where (songs.artistid = ?", (133,))
+	x = c.fetchall()
+	print(x)
 	c.execute("SELECT id, popularity FROM songs where (songs.artistid = ?)", (artist,))
 	x = c.fetchall()
 	temp = algorithm.normalize(x)
+	print(x)
 	track1, track2 = algorithm.get_random_tracks(temp[0], temp[1], last10)
 	c.execute("SELECT title from songs where (songs.id = ?)", (track1,))
 	song1 = c.fetchone()[0]
@@ -50,6 +54,13 @@ def getSongIdFromName(songName):
 	song1 = c.fetchone()[0]
 	return song1
 
+def getSongNameFromId(songid):
+	conn = sqlite3.connect('song.db')
+	c = conn.cursor()
+	c.execute("SELECT title from songs where (songs.id = ?)", (songid,))
+	song1 = c.fetchone()[0]
+	return song1
 
 
 
+getSongs(1448, [])
