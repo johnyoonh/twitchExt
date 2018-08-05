@@ -1,13 +1,6 @@
 from numpy.random import choice
 import random
 
-genres = {"Hip Hop": [11111, 22222, 33333, 44444], "Jazz": [55555, 66666, 77777, 88888, 99999]}
-artist_priorities = {"Hip Hop": [.2, .4, .1, .3], "Jazz": [.1, .2, .3, .2, .2]}
-
-artists = {11111: [0000, 1111, 2222, 3333, 4444], 22222: [5555, 6666, 7777, 8888]}
-track_priorities = {11111: [.1, .2, .3, .2, .2], 22222: [.1, .1, .4, .4]}
-last_10_songs = []
-
 def get_random_genres(genres):
     genre1 = random.choice(genres)
     genre2 = random.choice(genres)
@@ -20,6 +13,10 @@ def get_random_genre(genres, other_genre):
     while genre == other_genre:
         genre = random.choice(genres)
     return genre
+
+def normalize(val):
+    vals = [float(x[1]) for x in val]
+    return [x[0] for x in val],[x / sum(vals) for x in vals]
 
 def get_random_artists(artists, priorities):
     artist1 = choice(artists, 1, p=priorities, replace=False)
